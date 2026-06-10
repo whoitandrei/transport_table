@@ -1,0 +1,19 @@
+# Сборка
+build/
+cmake-build-*/
+
+# Conan
+.conan/
+
+# VS Code
+.vscode/settings.json
+
+# macOS
+.DS_Store
+
+# Бинарники
+*.o
+*.a
+*.so
+
+.devcontainer
