@@ -21,3 +21,9 @@ cmake-build-*/
 *.pb.h
 
 .devcontainer
+
+# cache
+*.cache
+
+#cmake
+compile_commands.json
