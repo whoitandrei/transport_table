@@ -1,0 +1,13 @@
+[requires]
+grpc/1.67.1
+nlohmann_json/3.11.3
+cpr/1.10.5
+sqlitecpp/3.3.1
+gtest/1.14.0
+
+[generators]
+CMakeToolchain
+CMakeDeps
+
+[options]
+grpc/*:shared=False

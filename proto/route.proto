@@ -1,0 +1,25 @@
+syntax = "proto3";
+package transport.route;
+
+import "common.proto";
+
+message RouteRequest {
+    transport.common.DeviceInfo device_info = 1;
+}
+
+message StopArrival {
+    string stop_name = 1;
+    int32 eta_seconds = 2;
+    bool is_next = 3;
+}
+
+message RouteProgress {
+    string route_name = 1;
+    string final_stop = 2;
+    repeated StopArrival upcoming_stops = 3;
+    transport.common.Timestamp calculated_at = 4;
+}
+
+service RouteService {
+    rpc GetArrivals(RouteRequest) returns (RouteProgress);
+}

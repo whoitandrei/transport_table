@@ -1,0 +1,29 @@
+syntax = "proto3";
+package transport.board;
+
+import "common.proto";
+import "weather.proto";
+import "route.proto";
+import "content.proto";
+
+message BoardRequest {
+    transport.common.DeviceInfo device = 1;
+}
+
+message BoardBlock {
+    oneof block {
+        transport.weather.WeatherData   weather = 1;
+        transport.route.RouteProgress   route   = 2;
+        transport.content.ContentItem   content = 3;
+    }
+}
+
+message Board {
+    repeated BoardBlock blocks = 1;
+    transport.common.Timestamp server_time = 2;
+}
+
+service BoardService {
+    rpc GetBoard(BoardRequest) returns (Board);
+    rpc StreamBoard(BoardRequest) returns (stream Board);
+}

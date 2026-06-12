@@ -1,0 +1,20 @@
+syntax = "proto3";
+package transport.weather;
+
+import "common.proto";
+
+message WeatherRequest {
+    transport.common.GeoPoint location = 1;
+}
+
+message WeatherData {
+    float temperature_celsius = 1;
+    string condition = 2;
+    float wind_speed_ms = 3;
+    transport.common.Timestamp measured_at = 4;
+    bool stale = 5;
+}
+
+service WeatherService {
+    rpc GetWeather(WeatherRequest) returns (WeatherData);
+}

@@ -1,0 +1,33 @@
+syntax = "proto3";
+package transport.content;
+
+enum ContentType {
+    CONTENT_TYPE_UNSPECIFIED = 0;
+    CONTENT_TYPE_AD = 1;
+    CONTENT_TYPE_NEWS = 2;
+    CONTENT_TYPE_FACT = 3;
+}
+
+message ContentRequest {
+    string device_id = 1;
+    string route_id = 2;
+    int32 max_items = 3;
+}
+
+message ContentItem {
+    string id = 1;
+    ContentType type = 2;
+    string title = 3;
+    string body = 4;
+    int32 display_seconds = 5;
+}
+
+message ContentResponse {
+    repeated ContentItem items = 1;
+    int32 ttl_seconds = 2;
+}
+
+service ContentService {
+    rpc GetContent(ContentRequest) returns (ContentResponse);
+}
+

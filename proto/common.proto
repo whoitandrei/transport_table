@@ -1,0 +1,24 @@
+syntax = "proto3";
+package transport.common;
+
+message GeoPoint {
+    double latitude = 1;
+    double longitude = 2;
+}
+
+message Timestamp {
+    int64 unix_seconds = 1;
+}
+
+enum DeviceType {
+    DEVICE_TYPE_UNSPECIFIED = 0;
+    DEVICE_TYPE_VEHICLE = 1;
+    DEVICE_TYPE_STOP = 2;
+}
+
+message DeviceInfo {
+    string id = 1;
+    DeviceType type = 2;
+    string route_id = 3;
+    GeoPoint current_position = 4;
+}
