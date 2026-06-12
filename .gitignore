@@ -16,4 +16,8 @@ cmake-build-*/
 *.a
 *.so
 
+# codegen 
+*.pb.cc
+*.pb.h
+
 .devcontainer
