@@ -1,5 +1,8 @@
-find_program(PROTOC protoc REQUIRED)
-find_program(GRPC_CPP_PLUGIN grpc_cpp_plugin REQUIRED)
+set(PROTOC "${CONAN_PROTOC}")
+set(GRPC_CPP_PLUGIN "${CONAN_GRPC_CPP_PLUGIN}")
+
+message(STATUS "=== PROTOC: ${PROTOC}")
+message(STATUS "=== GRPC_CPP_PLUGIN: ${GRPC_CPP_PLUGIN}")
 
 set(PROTO_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/common.proto
@@ -46,11 +49,6 @@ endforeach()
 
 add_library(proto-generated STATIC
     ${GENERATED_SOURCES}
-)
-
-target_include_directories(proto-generated BEFORE PRIVATE
-    ${PROTO_INCLUDE_DIR}
-    ${GRPC_INCLUDE_DIR}
 )
 
 target_include_directories(proto-generated PUBLIC
