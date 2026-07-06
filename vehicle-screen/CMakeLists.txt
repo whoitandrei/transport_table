@@ -30,3 +30,7 @@ target_link_libraries(simpleapp PRIVATE
     Qt6::Quick
     Qt6::QuickControls2
 )
+
+if(APPLE)
+    set_target_properties(simpleapp PROPERTIES MACOSX_BUNDLE TRUE)
+endif()
