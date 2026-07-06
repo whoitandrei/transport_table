@@ -128,7 +128,7 @@ ApplicationWindow {
 
                     Text {
                         anchors.centerIn: parent
-                        text: "00:00:00"
+                        text: backend.time.currentTime
                         font.pointSize: 18
                         font.bold: true
                         color: "#333"

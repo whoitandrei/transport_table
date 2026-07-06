@@ -2,23 +2,20 @@
 
 #include <QObject>
 
+#include "time_manager.h"
+
 class Backend : public QObject {
     Q_OBJECT
-    Q_PROPERTY(int counter READ getCounter WRITE setCounter NOTIFY counterChanged)
+    Q_PROPERTY(TimeManager* time READ getTime CONSTANT)
 
 public:
     explicit Backend(QObject *parent = nullptr);
 
-    int getCounter() const { return m_counter; }
-    void setCounter(int value);
+    TimeManager* getTime() const {
+        return timeManager_;
+    }
 
-    Q_INVOKABLE void increment();
-    Q_INVOKABLE void reset();
-    Q_INVOKABLE QString getMessage();
+private: 
+    TimeManager* timeManager_;
 
-signals:
-    void counterChanged();
-
-private:
-    int m_counter = 0;
 };
