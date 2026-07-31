@@ -22,6 +22,8 @@ qt_add_executable(simpleapp
     src/backend.cpp
     src/time_manager.h
     src/time_manager.cpp
+    src/trip_info_manager.h
+    src/trip_info_manager.cpp
     qml/qml.qrc
 )
 

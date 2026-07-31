@@ -18,7 +18,6 @@ ApplicationWindow {
         columnSpacing: 10
         rowSpacing: 10
 
-        // Верхний левый: ИНФОРМАЦИЯ О ПОЕЗДКЕ
         Rectangle {
             id: tripInfoWidget
             Layout.fillWidth: true
@@ -47,17 +46,18 @@ ApplicationWindow {
                     border.color: "#eee"
                     border.width: 1
                     radius: 4
+                    
+                    Text { text: "Маршрут: " + backend.trip.route }
+                    Text { text: "Номер: " + backend.trip.vehicleNumber }
+                    Text { text: "Статус: " + backend.trip.status }
 
-                    Text {
-                        anchors.centerIn: parent
-                        text: "Маршрут, номер транспорта, статус..."
-                        color: "#999"
+                    Component.onCompleted: {
+                        backend.trip.fetchTripData("trip-123")
                     }
                 }
             }
         }
 
-        // Верхний правый: ИНФОРМАЦИОННЫЙ ПОТОК (БД)
         Rectangle {
             id: infoStreamWidget
             Layout.fillWidth: true
@@ -96,7 +96,6 @@ ApplicationWindow {
             }
         }
 
-        // Нижний левый: ВРЕМЯ
         Rectangle {
             id: timeWidget
             Layout.fillWidth: true
@@ -137,7 +136,6 @@ ApplicationWindow {
             }
         }
 
-        // Нижний правый: ПОГОДА
         Rectangle {
             id: weatherWidget
             Layout.fillWidth: true
