@@ -11,7 +11,7 @@ class TransportBoard(ConanFile):
         self.requires("grpc/1.67.1")
         self.requires("nlohmann_json/3.11.3")
         self.requires("cpr/1.10.5")
-        self.requires("sqlitecpp/3.3.1")
+        self.requires("pugixml/1.14")
         self.requires("gtest/1.14.0")
 
     def build_requirements(self):

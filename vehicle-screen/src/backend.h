@@ -2,13 +2,13 @@
 
 #include <QObject>
 
+#include "board_client.h"
 #include "time_manager.h"
-#include "trip_info_manager.h"
 
 class Backend : public QObject {
     Q_OBJECT
     Q_PROPERTY(TimeManager* time READ getTime CONSTANT)
-    Q_PROPERTY(TripInfoManager* trip READ getTrip CONSTANT)
+    Q_PROPERTY(BoardClient* board READ getBoard CONSTANT)
 
 public:
     explicit Backend(QObject *parent = nullptr);
@@ -17,12 +17,11 @@ public:
         return timeManager_;
     }
 
-    TripInfoManager* getTrip() const {
-        return tripInfoManager_;
+    BoardClient* getBoard() const {
+        return boardClient_;
     }
 
 private:
     TimeManager* timeManager_;
-    TripInfoManager* tripInfoManager_;
-
+    BoardClient* boardClient_;
 };
