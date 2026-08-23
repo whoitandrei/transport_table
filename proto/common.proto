@@ -17,8 +17,8 @@ enum DeviceType {
 }
 
 message DeviceInfo {
-    string id = 1;
-    DeviceType type = 2;
+    string device_id = 1;
+    DeviceType device_type = 2;
     string route_id = 3;
     GeoPoint current_position = 4;
 }
